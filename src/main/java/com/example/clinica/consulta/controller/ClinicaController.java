@@ -1,25 +1,25 @@
-package com.example.clinica.controller;
+package com.example.clinica.consulta.controller;
 
-import com.example.clinica.model.Consulta;
-import com.example.clinica.service.ConsultaService;
+import com.example.clinica.consulta.controller.model.Consulta;
+import com.example.clinica.consulta.controller.service.ConsultaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
 import javax.validation.Valid;
 
+
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value="/api/clinica/atendimento")
+@RequestMapping(value="/api/v1/atendimento")
 @Api(value="Clinica Veterinária")
 public class ClinicaController {
 
-    @Autowired(required = false)
+    @Autowired
     private ConsultaService consultaService;
 
     @PostMapping
-    public Consulta salvaConsulta(@RequestBody @Valid Consulta consulta) {
+    public Consulta save(@RequestBody @Valid Consulta consulta) {
         return consultaService.save(consulta);
     }
-
 
 }

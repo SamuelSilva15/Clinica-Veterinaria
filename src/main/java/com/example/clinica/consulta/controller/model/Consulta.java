@@ -1,7 +1,9 @@
-package com.example.clinica.model;
+package com.example.clinica.consulta.controller.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name="CONSULTAS")
@@ -11,7 +13,7 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private String data;
+    private String data = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy, HH:mm:ss"));
 
     @NotNull
     private String nomeCliente;

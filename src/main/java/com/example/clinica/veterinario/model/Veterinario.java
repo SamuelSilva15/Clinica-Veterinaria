@@ -1,4 +1,4 @@
-package com.example.clinica.model;
+package com.example.clinica.veterinario.model;
 
 import com.sun.istack.NotNull;
 
@@ -72,3 +72,4 @@ public class Veterinario {
         this.telefone = telefone;
     }
 }
+
