@@ -28,6 +28,11 @@ public class VeterinarioController {
         return veterinarioService.findById(id);
     }
 
+    @PutMapping("/{id}")
+    public Veterinario atualizaDadosPorId(@RequestBody @Valid Veterinario veterinario){
+        return veterinarioService.AtualizaDados(veterinario);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id){
         veterinarioService.deleteById(id);

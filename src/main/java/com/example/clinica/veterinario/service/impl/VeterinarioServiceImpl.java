@@ -29,4 +29,9 @@ public class VeterinarioServiceImpl implements VeterinarioService {
         veterinarioRepository.deleteById(id);
         }
     }
+
+    @Override
+    public Veterinario AtualizaDados(Veterinario veterinario) {
+        return veterinarioRepository.save(veterinario);
+    }
 }

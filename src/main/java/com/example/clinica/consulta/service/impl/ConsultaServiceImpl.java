@@ -19,6 +19,7 @@ public class ConsultaServiceImpl implements ConsultaService {
         return consultaRepository.save(consulta);
     }
 
+
     @Override
     public Consulta findById(Long id) {
         return consultaRepository.findById(id)
@@ -32,7 +33,10 @@ public class ConsultaServiceImpl implements ConsultaService {
         }
     }
 
-
+    @Override
+    public Consulta atualizaDados(Consulta consulta) {
+        return consultaRepository.save(consulta);
+    }
 
 
 }

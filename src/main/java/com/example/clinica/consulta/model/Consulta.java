@@ -21,6 +21,23 @@ public class Consulta {
     @NotNull
     private String cpfCliente;
 
+    public Consulta() {
+    }
+
+    public Consulta(Long id, String data, String nomeCliente, String cpfCliente) {
+        this.id = id;
+        this.data = data;
+        this.nomeCliente = nomeCliente;
+        this.cpfCliente = cpfCliente;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getData() {
         return data;

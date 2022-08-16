@@ -8,5 +8,7 @@ public interface ConsultaService {
 
     void deleteById(Long id);
 
+    Consulta atualizaDados(Consulta consulta);
+
     Consulta findById(Long id);
 }

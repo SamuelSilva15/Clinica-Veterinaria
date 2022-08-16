@@ -36,11 +36,7 @@ public class Veterinario implements UserDetails {
     @NotNull
     private String telefone;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfis = new ArrayList<>();
-
     public Veterinario() {
-
     }
 
     public Veterinario(Long id, String nome, String email, String senha, String cpf, String dataNascimento, String telefone) {
@@ -52,6 +48,9 @@ public class Veterinario implements UserDetails {
         this.email = email;
         this.senha = senha;
     }
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfis = new ArrayList<>();
 
     public Long getId() {
         return id;

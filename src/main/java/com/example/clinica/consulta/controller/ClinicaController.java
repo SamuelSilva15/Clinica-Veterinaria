@@ -27,6 +27,11 @@ public class ClinicaController {
         return consultaService.findById(id);
     }
 
+    @PutMapping
+    public Consulta atualizaConsulta(@RequestBody @Valid Consulta consulta){
+        return consultaService.atualizaDados(consulta);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id){
         consultaService.deleteById(id);
