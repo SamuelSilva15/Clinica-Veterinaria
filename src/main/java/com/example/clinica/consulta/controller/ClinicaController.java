@@ -1,7 +1,7 @@
 package com.example.clinica.consulta.controller;
 
-import com.example.clinica.consulta.controller.model.Consulta;
-import com.example.clinica.consulta.controller.service.ConsultaService;
+import com.example.clinica.consulta.model.Consulta;
+import com.example.clinica.consulta.service.ConsultaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
@@ -21,5 +21,17 @@ public class ClinicaController {
     public Consulta save(@RequestBody @Valid Consulta consulta) {
         return consultaService.save(consulta);
     }
+
+    @GetMapping("/{id}")
+    public Consulta findById(@PathVariable Long id){
+        return consultaService.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id){
+        consultaService.deleteById(id);
+    }
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.example.clinica.consulta.controller.model;
+package com.example.clinica.consulta.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
