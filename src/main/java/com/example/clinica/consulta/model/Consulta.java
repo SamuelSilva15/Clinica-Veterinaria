@@ -13,7 +13,7 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private String data = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy, HH:mm:ss"));
+    private String data = LocalDateTime.MIN.format(DateTimeFormatter.ofPattern("dd/MM/yyyy, HH:mm:ss"));
 
     @NotNull
     private String nomeCliente;
@@ -24,9 +24,8 @@ public class Consulta {
     public Consulta() {
     }
 
-    public Consulta(Long id, String data, String nomeCliente, String cpfCliente) {
+    public Consulta(Long id, String nomeCliente, String cpfCliente) {
         this.id = id;
-        this.data = data;
         this.nomeCliente = nomeCliente;
         this.cpfCliente = cpfCliente;
     }
@@ -35,17 +34,14 @@ public class Consulta {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getData() {
         return data;
     }
 
-    public void setData(String data) {
-        this.data = data;
-    }
 
     public String getNomeCliente() {
         return nomeCliente;

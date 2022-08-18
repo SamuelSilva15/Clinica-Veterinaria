@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*")
@@ -23,14 +24,19 @@ public class VeterinarioController {
         return veterinarioService.save(veterinario);
     }
 
+    @GetMapping
+    public List<Veterinario> findAll(){
+        return veterinarioService.findAll();
+    }
+
     @GetMapping("/{id}")
     public Veterinario findById(@PathVariable Long id){
         return veterinarioService.findById(id);
     }
 
     @PutMapping("/{id}")
-    public Veterinario atualizaDadosPorId(@RequestBody @Valid Veterinario veterinario){
-        return veterinarioService.AtualizaDados(veterinario);
+    public Veterinario atualizaDadosPorId(@PathVariable Long id, @RequestBody @Valid Veterinario veterinario){
+        return veterinarioService.atualizaDados(id, veterinario);
     }
 
     @DeleteMapping("/{id}")

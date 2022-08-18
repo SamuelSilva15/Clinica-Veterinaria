@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
 import javax.validation.Valid;
+import java.util.List;
 
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/api/v1/atendimento")
 @Api(value="Clinica Veterinária")
-public class ClinicaController {
+public class ConsultaController {
 
     @Autowired
     private ConsultaService consultaService;
@@ -22,14 +23,19 @@ public class ClinicaController {
         return consultaService.save(consulta);
     }
 
+    @GetMapping
+    public List<Consulta> findAll(){
+        return consultaService.findAll();
+    }
+
     @GetMapping("/{id}")
     public Consulta findById(@PathVariable Long id){
         return consultaService.findById(id);
     }
 
-    @PutMapping
-    public Consulta atualizaConsulta(@RequestBody @Valid Consulta consulta){
-        return consultaService.atualizaDados(consulta);
+    @PutMapping("/{id}")
+    public Consulta atualizaConsulta(@PathVariable Long id, @RequestBody @Valid Consulta consulta){
+        return consultaService.atualizaDados(id, consulta);
     }
 
     @DeleteMapping("/{id}")
